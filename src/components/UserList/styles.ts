@@ -1,6 +1,9 @@
 import styled from "styled-components";
 
 import { UserProps } from '.'
+import { WeatherMoon } from '@styled-icons/fluentui-system-filled'
+import { DotFill } from '@styled-icons/octicons' 
+import { DashCircleFill } from '@styled-icons/bootstrap'
 
 export const Container = styled.div `
   grid-area: UL;
@@ -101,33 +104,50 @@ export const Avatar = styled.div<UserProps>`
   flex-shrink: 0;
   position: relative;
 
-  &::after{
-    content: '';
-
-    width: 10px;
-    height: 10px;
-
-    position: absolute;
-    bottom: -2px;
-    right: -4px;
-
-    border-radius: 50%;
-    border: 3px solid var(--quaternary);
-
-    cursor: pointer;
-
-    display: ${props => 
-      (props.isOnline || 
-      props.isAbsent || 
-      props.isBusy  ? 'inline' : 'none')};
-
-    background-color: ${props => 
-      (props.isOnline ? '#3ba55d' : 
-      props.isAbsent ? '#faa81a' : 
-      props.isBusy ? '#ed4245' : 'none')};
-  }
-
   &.bot{
     background-color: var(--mention-detail);
   }
+`
+
+export const Absent = styled(WeatherMoon)`
+  width: 16px;
+  height: 16px;
+  padding: 1px;
+
+  position: relative;
+  bottom: -9px;
+  right: 14px;
+
+  color: #faa81a;
+  background-color: var(--quaternary);
+
+  border-radius: 50%;
+`
+export const Online = styled(DotFill)`
+  width: 16px;
+  height: 16px;
+
+  position: relative;
+  bottom: -9px;
+  right: 14px;
+
+  color: #3ba55d;
+  background-color: #3ba55d;
+
+  border-radius: 50%;
+  border: 3px solid var(--quaternary);
+`
+export const Busy = styled(DashCircleFill)`
+  width: 16px;
+  height: 16px;
+
+  position: relative;
+  bottom: -9px;
+  right: 14px;
+
+  color: #ed4245;
+  background-color: var(--quaternary);
+
+  border-radius: 50%;
+  border: 3px solid var(--quaternary);
 `

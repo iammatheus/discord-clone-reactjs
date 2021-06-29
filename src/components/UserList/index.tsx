@@ -1,24 +1,24 @@
 import React from 'react';
-import { Container, Role, User, Avatar } from './styles'
+import { Container, Role, User, Avatar, Online, Absent, Busy } from './styles'
 
 export interface UserProps{
   nickname?: string;
   isBot?: boolean;
-  isOnline?: boolean;
   isModerator?: boolean;
   isUbl?: boolean;
-  isBusy?: boolean;
+  isOnline?: boolean;
   isAbsent?: boolean;
+  isBusy?: boolean;
 }
 
 const UserRow: React.FC<UserProps> = ({
   nickname,
   isBot,
   isOnline,
-  isModerator,
-  isUbl,
+  isAbsent,
   isBusy,
-  isAbsent
+  isModerator,
+  isUbl
 }) => {
   return (
     <User
@@ -30,11 +30,17 @@ const UserRow: React.FC<UserProps> = ({
       <Avatar 
         className={isBot ? 'bot' : ''}
         isOnline={isOnline}
+        isAbsent={isAbsent}
         isBusy={isBusy}
-        isAbsent={isAbsent}/>
+        />
+      {isOnline ? <Online title="Disponível"/> : ''}
+      {isAbsent ? <Absent title="Ausente"/> : ''}
+      {isBusy ? <Busy title="Não perturbar"/> : ''}
 
       <strong 
-      className={isModerator ? 'moderator' : isUbl ? 'ubl' : isBot ? 'bot' : ''}>{nickname}</strong>
+      className={isModerator ? 'moderator' : 
+      isUbl ? 'ubl' : isBot ? 'bot' : ''}>{nickname} </strong>
+      
       
       {isBot && <span>Bot</span>}
     </User>

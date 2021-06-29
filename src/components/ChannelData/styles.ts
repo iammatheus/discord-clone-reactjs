@@ -39,14 +39,7 @@ export const Messages = styled.div `
 export const InputWrapper = styled.div `
   width: 100%;
   padding: 0 16px;
-
-  > ::placeholder{
-    max-width: 125px;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
-  }
-
+  
   > .iconsContainer{
     position: relative;
     bottom: 34px;
@@ -56,6 +49,7 @@ export const InputWrapper = styled.div `
     
     > .right{
       margin: 0 25px;
+      z-index: 2;
 
       > .rightIcons{
         margin: 0 8px;
@@ -73,6 +67,7 @@ export const Input = styled.input `
   height: 44px;
   font-size: 15px;
   color: var(--senary);
+  z-index: 2;
 
   padding: 0 10px 0 57px;
   border-radius: 7px;
@@ -81,8 +76,16 @@ export const Input = styled.input `
 
   position: relative;
 
-  &::placeholder{
-    color: #82838690;
+  @media(max-width: 1080px){
+    &::placeholder{
+      max-width: 40%;
+
+      color: #82838690;
+      
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
   }
   
   /* ~ svg{
@@ -100,6 +103,7 @@ export const InputIcon = styled(AddCircle) `
   width: 24px;
   height: 24px;
   color: #b9bbbe;
+  z-index: 2;
 
   cursor: pointer;
 
@@ -136,7 +140,9 @@ export const EmojiIcon = styled(Emoji) `
   height: 24px;
   color: #b9bbbe;
   cursor: pointer;
+  transition: transform .3s;
   &:hover{
     fill: #ffcc4d;
+    transform: scale(1.15);
   }
 `

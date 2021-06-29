@@ -21,6 +21,9 @@ const ServerList: React.FC = () => {
       <ServerButton image={Sapo} />
       <ServerButton image={Rocketseat} hasNotifications mentions={28} />
       <ServerButton image={Umbrella} selected/>
+
+      <ServerButton isServerAdd />
+      <ServerButton isExplorerServer />
     </Container>
   )
 }

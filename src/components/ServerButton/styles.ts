@@ -1,8 +1,11 @@
 import styled from "styled-components";
 
+import { Add } from '@styled-icons/fluentui-system-filled'
+import { Compass } from '@styled-icons/ionicons-sharp'
+
 import { Props } from '.'
 
-const Button = styled.button<Props>`
+export const Button = styled.button<Props>`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -26,10 +29,10 @@ const Button = styled.button<Props>`
   
   > img {
     width: ${props => 
-      (props.isHome ? '26px' : '100%' && props.mentions ? '20px' : '100%') };
+      (props.isHome ? '26px' : '48px' && props.mentions ? '20px' : '48px') };
     height: ${props => 
-      (props.isHome ? '26px' : '100%' && props.mentions ? '100%' : '100%')};
-    border-radius: 50%;
+      (props.isHome ? '26px' : '48px' && props.mentions ? '48px' : props.isServerAdd || props.isExplorerServer ? '' : '48px')};
+    border-radius: 50%; 
     
     transition: border-radius .2s;
     &.active,
@@ -40,7 +43,11 @@ const Button = styled.button<Props>`
   &:hover{
     border-radius: 16px;
     background-color: ${props => 
-      (props.isHome ? 'var(--discord)' : 'auto')};
+      (props.isHome ? 'var(--discord)' : props.isServerAdd || props.isExplorerServer ? '#3ba55d' : 'auto')};
+
+      > .btn-server{
+        color: var(--white);
+      }
   }
 
   &::before{
@@ -97,4 +104,24 @@ const Button = styled.button<Props>`
     text-align: right;
   }
 `
-export default Button;
+
+export const AddServer = styled(Add)`
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  color: #3ba55d;
+
+  transition: color .2s;
+`
+
+export const ExplorerServer = styled(Compass)`
+  position: absolute;
+
+  width: 25px;
+  height: 25px;
+  
+  color: #3ba55d;
+  border-radius: 50%;
+
+  transition: color .2s;
+`
