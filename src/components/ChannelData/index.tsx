@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from 'react';
 
-import MatheusImage from '../../assets/profile.jpg'
-import BlindaoImage from '../../assets/blindao.jpg'
+import MatheusImage from '../../assets/matheus40x40.png'
+import BlindaoImage from '../../assets/blindao40x40.png'
 
 
 import { 

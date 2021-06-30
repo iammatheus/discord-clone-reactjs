@@ -3,10 +3,10 @@ import React from 'react'
 import ServerButton from '../ServerButton'
 import { Container, Separator } from './styles'
 
-import Quasar from '../../assets/quasar.jpg'
-import TheCrazy from '../../assets/the_crazy.jpg'
+import Quasar from '../../assets/quasar.png'
+import TheCrazy from '../../assets/the_crazy.png'
 import PayDayMask from '../../assets/payday_mask.png'
-import Sapo from '../../assets/sapo.jpg'
+import Sapo from '../../assets/sapo.png'
 import Rocketseat from '../../assets/rocketseat.svg'
 import Umbrella from '../../assets/umbrella.png'
 

@@ -46,9 +46,13 @@ export const User = styled.div<UserProps>`
   position: relative;
   margin-top: 5px;
   opacity: ${props => props.isOffline ? .5 : 1};
+  border-radius: 4px;
 
   &:hover{
     opacity: 1;
+    > div > strong {
+      color: #dcddde;
+    }
   }
 
   > span{

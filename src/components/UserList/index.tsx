@@ -1,13 +1,14 @@
 import React from 'react';
 
-import MatheusImage from '../../assets/profile.jpg'
-import Camisa10Image from '../../assets/icinho.jpg'
-import BlindaoImage from '../../assets/blindao.jpg'
-import NatanImage from '../../assets/natan.png'
+import MatheusImage from '../../assets/matheus.png'
+import Camisa10Image from '../../assets/danight.png'
+import BlindaoImage from '../../assets/blindao.png'
+import NatanImage from '../../assets/natanziin.png'
 import DarkImage from '../../assets/dark.png'
-import DanImage from '../../assets/dan.jpg'
-import MatueImage from '../../assets/matue.jpg'
+import DanImage from '../../assets/dan.png'
+import MatueImage from '../../assets/matue.png'
 import BotImage from '../../assets/bot.png'
+import MalvadoFPS from '../../assets/malvadofps.png'
 import StandardImage from '../../assets/discord.svg'
 
 import { Container, Role, User, Avatar, Online, Absent, Busy } from './styles'
@@ -85,9 +86,10 @@ const UserRow: React.FC<UserProps> = ({
 const UserList: React.FC = () => {
   return (
     <Container>
-      <Role>Moderador — 2</Role>
+      <Role>Moderador — 3</Role>
         <UserRow nickname="Camisa10 / daNIGHT" isAbsent isModerator isImage image={Camisa10Image} activities="Call of Duty: Modern Warfare"/>
         <UserRow nickname="Matheus Ferreira" isOnline isModerator isImage image={MatheusImage} activities="Visual Studio Code"/>
+        <UserRow nickname="MalvadoFPS" isOnline isModerator isImage image={MalvadoFPS} activities="Counter-Strike: Global Offensive"/>
         
       <Role>Master — 1</Role>
         <UserRow nickname="BlindaoFire" isOnline isMaster isImage image={BlindaoImage}/>

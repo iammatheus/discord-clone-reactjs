@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import { Container, Profile, Avatar, UserData, Icons, MicIcon, HeadphoneIcon, SettingsIcon } from './styles'
-import ProfilePicture from '../../assets/profile.jpg'
+import ProfilePicture from '../../assets/matheus.png'
 
 const UserInfo: React.FC = () => {
 
