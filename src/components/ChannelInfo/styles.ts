@@ -62,6 +62,7 @@ export const FunctionsChannel = styled.div`
     margin: 0 8px;
     position: relative;  
     height: 24px;
+    
   }
 `
 export const BellIcon = styled(BellFill)`
@@ -90,6 +91,10 @@ export const Search = styled.input`
   color: white;
   background-color: var(--tertiary);
   cursor: auto !important;
+
+  &.size{
+    width: 240px !important;      
+  }
 `
 
 export const SearchIcon = styled(MagnifyingGlass)`

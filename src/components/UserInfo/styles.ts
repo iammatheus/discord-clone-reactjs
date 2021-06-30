@@ -81,9 +81,35 @@ export const UserData = styled.div`
 export const Icons = styled.div`
   display: flex;
   align-items: center;
-  > svg:not(:first-child){
+
+  > div:not(:first-child){
     margin-left: 9px;
   }
+  
+  position: relative;
+  
+  > .container-mic{
+    position: relative;
+
+    > .muteMic{
+      position: absolute;
+      left: 9px;
+      top: 0;
+
+      width: 4px;
+      height: 22px;
+
+      background-color: #ed4245;
+      border: 1px solid var(--quaternary);
+      border-radius: 4px;
+
+      transform: rotate(40deg);
+
+      cursor: pointer;
+    }
+  }
+
+  
 `
 
 export const MicIcon = styled(Mic)`
@@ -95,6 +121,7 @@ export const MicIcon = styled(Mic)`
   cursor: pointer;
 
   transition: opacity .1s;
+
   &:hover{
     opacity: .8;
   }
@@ -112,6 +139,8 @@ export const HeadphoneIcon = styled(Headset)`
   &:hover{
     opacity: .8;
   }
+
+  position: relative;
 `
 
 export const SettingsIcon = styled(Settings)`

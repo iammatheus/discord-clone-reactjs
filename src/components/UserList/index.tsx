@@ -1,14 +1,30 @@
 import React from 'react';
+
+import MatheusImage from '../../assets/profile.jpg'
+import Camisa10Image from '../../assets/icinho.jpg'
+import BlindaoImage from '../../assets/blindao.jpg'
+import NatanImage from '../../assets/natan.png'
+import DarkImage from '../../assets/dark.png'
+import DanImage from '../../assets/dan.jpg'
+import MatueImage from '../../assets/matue.jpg'
+import BotImage from '../../assets/bot.png'
+import StandardImage from '../../assets/discord.svg'
+
 import { Container, Role, User, Avatar, Online, Absent, Busy } from './styles'
 
 export interface UserProps{
   nickname?: string;
   isBot?: boolean;
+  isMaster?: boolean;
   isModerator?: boolean;
   isUbl?: boolean;
   isOnline?: boolean;
   isAbsent?: boolean;
   isBusy?: boolean;
+  isUser?: boolean;
+  isImage?: boolean;
+  image?: string;
+  activities?: string;
 }
 
 const UserRow: React.FC<UserProps> = ({
@@ -17,32 +33,49 @@ const UserRow: React.FC<UserProps> = ({
   isOnline,
   isAbsent,
   isBusy,
+  isMaster,
   isModerator,
-  isUbl
+  isUbl,
+  isUser,
+  isImage,
+  image,
+  activities
 }) => {
   return (
     <User
       nickname={nickname}
+      isMaster={isMaster}
       isModerator={isModerator}
       isUbl={isUbl}
       isBot={isBot}
+      isUser={isUser}
+      isImage={isImage}
+      activities={activities}
     >
-      <Avatar 
-        className={isBot ? 'bot' : ''}
-        isOnline={isOnline}
-        isAbsent={isAbsent}
-        isBusy={isBusy}
-        />
-      {isOnline ? <Online title="Disponível"/> : ''}
-      {isAbsent ? <Absent title="Ausente"/> : ''}
-      {isBusy ? <Busy title="Não perturbar"/> : ''}
+      <div>
+        <Avatar 
+          className={isBot ? 'bot' : ''}
+          isOnline={isOnline}
+          isAbsent={isAbsent}
+          isBusy={isBusy}
+          isUser={isUser}
+          isImage={isImage}
+          image={image}
+          >
+            {isImage ? <img src={image} alt="Foto de perfil"/> : <img src={StandardImage} className="standardImage" alt="Foto de perfil"/>}
+        </Avatar>
 
-      <strong 
-      className={isModerator ? 'moderator' : 
-      isUbl ? 'ubl' : isBot ? 'bot' : ''}>{nickname} </strong>
-      
-      
-      {isBot && <span>Bot</span>}
+        {isOnline ? <Online activities={activities} title="Disponível"/> : ''}
+        {isAbsent ? <Absent activities={activities} title="Ausente"/> : ''}
+        {isBusy ? <Busy activities={activities} title="Não perturbar"/> : ''}
+
+        <strong 
+        className={isMaster ? 'master' : isModerator ? 'moderator' : 
+        isUbl ? 'ubl' : isBot ? 'bot' : ''}>{nickname} </strong>
+        
+        {isBot && <span>Bot</span>}
+      </div>
+      <span title={activities}>Jogando <b>{activities}</b></span>
     </User>
   )
 }
@@ -50,24 +83,27 @@ const UserList: React.FC = () => {
   return (
     <Container>
       <Role>Moderador — 2</Role>
-        <UserRow nickname="Camisa10 / daNIGHT" isAbsent isModerator/>
-        <UserRow nickname="Matheus Ferreira" isOnline isModerator/>
+        <UserRow nickname="Camisa10 / daNIGHT" isAbsent isModerator isImage image={Camisa10Image} activities="Call of Duty: Modern Warfare"/>
+        <UserRow nickname="Matheus Ferreira" isOnline isModerator isImage image={MatheusImage} activities="Visual Studio Code"/>
+        
+      <Role>Master — 1</Role>
+        <UserRow nickname="BlindaoFire" isOnline isMaster isImage image={BlindaoImage}/>
 
       <Role>Bot's — 1</Role>
-        <UserRow nickname="Jukebox" isBot isOnline/>
+        <UserRow nickname="Jukebox" isBot isOnline isImage image={BotImage}/>
 
-      <Role>UBL — 1</Role>
-        <UserRow nickname="Matue" isAbsent isUbl/>
+      <Role>UBL — 2</Role>
+        <UserRow nickname="Matue" isOnline isUbl isImage image={MatueImage}/>
+        <UserRow nickname="Natanziin" isAbsent isUbl isImage image={NatanImage} activities="Free Fire"/>
 
-      <Role>Disponível — 1</Role>
-        <UserRow nickname="Assassinsplay" isBusy/>
-        <UserRow nickname="br daniel" isAbsent/>
-        <UserRow nickname="Dark" isBusy/>
-        <UserRow nickname="euqirne" isOnline/>
-        <UserRow nickname="Faria" isAbsent/>
+      <Role>Disponível — 4</Role>
+        <UserRow nickname="br daniel" isAbsent isImage image={StandardImage} isUser/>
+        <UserRow nickname="Dark" isBusy isImage image={DarkImage}/>
+        <UserRow nickname="euqirnE" isOnline isImage image={StandardImage} isUser/>
+        <UserRow nickname="daN" isBusy isImage image={DanImage}/>
 
-      <Role>Offline — 18</Role>
-        {Array.from(Array(18).keys()).map((index) => (
+      <Role>Offline — 20</Role>
+        {Array.from(Array(20).keys()).map((index) => (
           <UserRow nickname="Fulano" key={index}/>
         ))}
     </Container>

@@ -19,10 +19,6 @@ export const Container = styled.div`
     display: flex;
   }
 
-  &.mention{
-    border-left: 2px solid var(--mention-detail);
-    padding-left: 14px;
-  }
   & + div {
     margin-top: 13px;
   }
@@ -46,6 +42,18 @@ export const Avatar = styled.div`
   &.bot{
     background-color: var(--mention-detail);
   }
+
+  > img{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+
+    &.standardImage{
+      padding: 7px;
+      background-color: #757e8a;
+    }
+  }
+  
 `
 
 export const Message = styled.div`
@@ -63,7 +71,20 @@ export const Header = styled.div`
 
   > strong{
     color: var(--white);
+    font-weight: 400;
+
+    &.master{
+      color: #f1c41a;
+    }
+    &.moderator{
+      color: #21bc9c;
+    }
+    &:hover{
+      text-decoration: underline;
+      cursor: pointer;
+    }
   }
+  
   > span {
     font-size: 11px;
     font-weight: bold;
@@ -86,7 +107,7 @@ export const Header = styled.div`
 
 export const Content = styled.div`
   text-align: left;
-  color: var(--white);
+  color: #d7d5d9;
 `
 
 export const Mention = styled.span`

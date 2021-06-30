@@ -66,7 +66,7 @@ export const Input = styled.input `
   width: 100%;
   height: 44px;
   font-size: 15px;
-  color: var(--senary);
+  color: #d7d5d9;
   z-index: 2;
 
   padding: 0 10px 0 57px;
@@ -87,16 +87,6 @@ export const Input = styled.input `
       overflow: hidden;
     }
   }
-  
-  /* ~ svg{
-    position: relative;
-    bottom: 34px;
-    left: 15px;
-  }
-  ~ div{
-    display: flex;
-    justify-content: left;
-  } */
 `
 
 export const InputIcon = styled(AddCircle) `

@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Container, HashtagIcon, Title, InfoWrapper, FunctionsChannel, 
           BellIcon, PinIcon, Search, UsersIcon, InboxIcon, QuestionIcon, SearchIcon } from './styles'
 
 const ChannelInfo: React.FC = () => {
+
+  const [unSize, setSize]=useState(false)
+
   return (
     <Container>
       <InfoWrapper>
@@ -16,7 +19,7 @@ const ChannelInfo: React.FC = () => {
         <UsersIcon className="functionsIcon"/>
 
         <div className="container-search">
-          <Search className="functionsIcon" placeholder="Buscar"/>
+          <Search className= {unSize ? 'size functionsIcon' : 'functionsIcon'} placeholder="Buscar" onClick={() => setSize(!unSize)}/>
           <SearchIcon/>
         </div>
         

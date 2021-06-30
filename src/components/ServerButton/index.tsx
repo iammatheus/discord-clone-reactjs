@@ -32,7 +32,7 @@ const ServerButton: React.FC<Props> = ({
       mentions={mentions}
       className={selected ? 'active' : ''}
     >
-      { isHome ? <img src={Logo} /> : <img src={image} className={selected ? 'active' : ''} /> }
+      { isHome ? <img src={Logo} alt="Imagem do servidor"/> : <img src={image} className={selected ? 'active' : ''} alt=""/> }
       { isServerAdd ? <AddServer className="btn-server" /> : isExplorerServer ? <ExplorerServer className="btn-server"/> : '' }
     </Button>
   )

@@ -1,4 +1,9 @@
 import React, { useRef, useEffect } from 'react';
+
+import MatheusImage from '../../assets/profile.jpg'
+import BlindaoImage from '../../assets/blindao.jpg'
+
+
 import { 
     Container, Messages, InputWrapper, Input, InputIcon, 
     GiftIcon, GifIcon, FigIcon, EmojiIcon } from './styles'
@@ -22,11 +27,18 @@ const ChannelData: React.FC = () => {
           author="Matheus Ferreira"
           date="23/06/2021"
           content="Testando Mensagem"
+          image={MatheusImage}
+          isImage
+          isModerator
         />
+        
         <ChannelMessage
           author="Matheus Ferreira"
           date="23/06/2021"
           content="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book"
+          image={MatheusImage}
+          isImage
+          isModerator
         />
 
         <ChannelMessage
@@ -37,7 +49,9 @@ const ChannelData: React.FC = () => {
               <Mention>@Matheus Ferreira</Mention>, testando menção
             </>
           }
-          hasMention
+          image={BlindaoImage}
+          isImage
+          isMaster
         />
 
         {Array.from(Array(10).keys()).map((index) => (

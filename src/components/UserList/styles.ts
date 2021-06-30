@@ -41,24 +41,52 @@ export const Role = styled.div`
 
 export const User = styled.div<UserProps>`
   display: flex;
-  align-items: center;
+  flex-direction: column;
 
+  position: relative;
   margin-top: 5px;
-  padding: 5px;
-  border-radius: 4px;
 
-  background-color: transparent;
-  transition: .1s;
+  > span{
+    display: ${props => props.activities ? 'inline' : 'none'};
+    
+    position: absolute;
+    left: 47px;
+    bottom: 5px;
 
-  > strong{
-    margin-left: 13px;
+    font-size: 11px;
+    color: var(--gray);
+    
+    max-width: 140px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+
+  > div {
+    display: flex;
+    align-items: ${props => props.activities ? 'flex-start' : 'center'};
+
+    padding: 5px;
+    border-radius: 4px;
+
+    background-color: transparent;
+    transition: .1s;
+
+  }
+
+  > div > strong{
+    margin-left: ${props => props.isImage ? '-5px' : '10px'};
     color: var(--gray);
     font-weight: 400;
+    font-size: 15px;
 
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
 
+    &.master{
+      color: #f1c41a;
+    }
     &.moderator{
       color: #21bc9c;
     }
@@ -68,16 +96,10 @@ export const User = styled.div<UserProps>`
     &.bot{
       color: #2bb559;
     }
+    
   }
-  &:hover{
-    background-color: #34373c;
-    > strong{
-      color: ${props => 
-      (props.isModerator ? 'auto' : props.isUbl ? 'auto' : props.isBot ? 'auto' : '#fff')};
-    }
-  }
-  
-  > span {
+
+  > div > span {
     font-size: 11px;
     font-weight: bold;
     text-transform: uppercase;
@@ -89,6 +111,14 @@ export const User = styled.div<UserProps>`
     padding: 4px 5px;
 
     border-radius: 4px;
+  }
+
+  &:hover{
+    background-color: #34373c;
+    > strong{
+      color: ${props => 
+      (props.isModerator ? 'auto' : props.isUbl ? 'auto' : props.isBot ? 'auto' : '#fff')};
+    }
   }
   
   cursor: pointer;
@@ -104,18 +134,28 @@ export const Avatar = styled.div<UserProps>`
   flex-shrink: 0;
   position: relative;
 
-  &.bot{
-    background-color: var(--mention-detail);
+  > img{
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: ${props =>  props.isUser ? '#ed4245' : ''};
+    padding: ${props =>  props.isUser ? '5px' : ''};
+
+    &.standardImage{
+      padding: 5px;
+      background-color: #757e8a;
+    }
   }
+
 `
 
-export const Absent = styled(WeatherMoon)`
+export const Absent = styled(WeatherMoon)<UserProps>`
   width: 16px;
   height: 16px;
   padding: 1px;
 
   position: relative;
-  bottom: -9px;
+  bottom: ${props => props.activities ? '-17px' : '-9px'};
   right: 14px;
 
   color: #faa81a;
@@ -123,12 +163,12 @@ export const Absent = styled(WeatherMoon)`
 
   border-radius: 50%;
 `
-export const Online = styled(DotFill)`
+export const Online = styled(DotFill)<UserProps>`
   width: 16px;
   height: 16px;
 
   position: relative;
-  bottom: -9px;
+  bottom: ${props => props.activities ? '-17px' : '-9px'};
   right: 14px;
 
   color: #3ba55d;
@@ -137,12 +177,12 @@ export const Online = styled(DotFill)`
   border-radius: 50%;
   border: 3px solid var(--quaternary);
 `
-export const Busy = styled(DashCircleFill)`
+export const Busy = styled(DashCircleFill)<UserProps>`
   width: 16px;
   height: 16px;
 
   position: relative;
-  bottom: -9px;
+  bottom: ${props => props.activities ? '-17px' : '-9px'};
   right: 14px;
 
   color: #ed4245;
