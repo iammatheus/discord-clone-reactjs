@@ -56,7 +56,7 @@ export const User = styled.div<UserProps>`
     font-size: 11px;
     color: var(--gray);
     
-    max-width: 140px;
+    max-width: 150px;
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;

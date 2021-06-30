@@ -7,7 +7,7 @@ import Quasar from '../../assets/quasar.jpg'
 import TheCrazy from '../../assets/the_crazy.jpg'
 import PayDayMask from '../../assets/payday_mask.png'
 import Sapo from '../../assets/sapo.jpg'
-import Rocketseat from '../../assets/Logo.svg'
+import Rocketseat from '../../assets/rocketseat.svg'
 import Umbrella from '../../assets/umbrella.png'
 
 const ServerList: React.FC = () => {
