@@ -45,6 +45,11 @@ export const User = styled.div<UserProps>`
 
   position: relative;
   margin-top: 5px;
+  opacity: ${props => props.isOffline ? .5 : 1};
+
+  &:hover{
+    opacity: 1;
+  }
 
   > span{
     display: ${props => props.activities ? 'inline' : 'none'};
@@ -71,7 +76,6 @@ export const User = styled.div<UserProps>`
 
     background-color: transparent;
     transition: .1s;
-
   }
 
   > div > strong{
@@ -117,7 +121,7 @@ export const User = styled.div<UserProps>`
     background-color: #34373c;
     > strong{
       color: ${props => 
-      (props.isModerator ? 'auto' : props.isUbl ? 'auto' : props.isBot ? 'auto' : '#fff')};
+      (props.isModerator || props.isUbl || props.isBot ? 'auto' : '#fff')};
     }
   }
   

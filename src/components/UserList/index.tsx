@@ -19,6 +19,7 @@ export interface UserProps{
   isModerator?: boolean;
   isUbl?: boolean;
   isOnline?: boolean;
+  isOffline?: boolean;
   isAbsent?: boolean;
   isBusy?: boolean;
   isUser?: boolean;
@@ -31,6 +32,7 @@ const UserRow: React.FC<UserProps> = ({
   nickname,
   isBot,
   isOnline,
+  isOffline,
   isAbsent,
   isBusy,
   isMaster,
@@ -51,6 +53,7 @@ const UserRow: React.FC<UserProps> = ({
       isUser={isUser}
       isImage={isImage}
       activities={activities}
+      isOffline={isOffline}
     >
       <div>
         <Avatar 
@@ -104,7 +107,7 @@ const UserList: React.FC = () => {
 
       <Role>Offline — 20</Role>
         {Array.from(Array(20).keys()).map((index) => (
-          <UserRow nickname="Fulano" key={index}/>
+          <UserRow nickname="Fulano" key={index} isOffline/>
         ))}
     </Container>
   )
